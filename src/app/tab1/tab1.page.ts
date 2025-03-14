@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonHeader, IonToolbar, IonTitle, IonContent, IonButton, IonCard, IonCardContent } from '@ionic/angular/standalone';
+import { IonHeader, IonToolbar, IonTitle, IonContent, IonButton, IonBadge } from '@ionic/angular/standalone';
 interface Word {
   word: string;
   emoji: string;
@@ -245,7 +245,7 @@ export const WORDS: Word[] = [
   selector: 'app-tab1',
   templateUrl: 'tab1.page.html',
   styleUrls: ['tab1.page.scss'],
-  imports: [IonHeader, IonToolbar, IonTitle, IonContent, IonButton, IonCard, IonCardContent],
+  imports: [IonHeader, IonToolbar, IonTitle, IonContent, IonButton, IonBadge],
 })
 export class Tab1Page {
   words: Word[] = WORDS;

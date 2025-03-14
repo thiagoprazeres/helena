@@ -1,4 +1,4 @@
-<ion-header>
+<ion-header class="ion-no-border">
   <ion-toolbar>
     <ion-title>Helena ({{index}})</ion-title>
   </ion-toolbar>
@@ -11,10 +11,12 @@
   } @else {
   <h2 class="text-2xl">{{ words[reindex].word }}</h2>
   } @if(!isLastCorrectAnswer) {
-  <h3 class="text-3xl font-bold">wrong</h3>
+  <ion-badge class="text-3xl font-bold">wrong</ion-badge>
   }
-  <ion-button (click)="handleResponse(true)">✅ True</ion-button>
-  <ion-button color="danger" (click)="handleResponse(false)"
-    >🚫 False</ion-button
-  >
+  <ion-button fill="solid" shape="round" id="button-true" color="primary" size="large" (click)="handleResponse(true)">
+    True
+  </ion-button>
+  <ion-button fill="solid" shape="round" id="button-false" color="danger" size="large" (click)="handleResponse(false)">
+    False
+  </ion-button>
 </ion-content>
