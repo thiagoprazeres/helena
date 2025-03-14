@@ -1,17 +1,16 @@
 h1 {
   font-size: 8rem;
 }
-h2 {
+ion-text {
   font-size: 3.75rem;
 }
 ion-button {
   margin: 0;
   width: 49%;
-  margin-top: 2rem;
 }
 ion-button#button-true {
   margin-right: 2%;
 }
 ion-toolbar {
-    --background: transparent;
-  }
+  --background: transparent;
+}
