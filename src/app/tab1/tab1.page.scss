@@ -1,16 +1,32 @@
-h1 {
+ion-card-title {
   font-size: 8rem;
 }
-ion-text {
+h1 {
   font-size: 3.75rem;
 }
 ion-button {
   margin: 0;
-  width: 49%;
-}
-ion-button#button-true {
-  margin-right: 2%;
 }
 ion-toolbar {
   --background: transparent;
+}
+
+ion-card.word-card {
+  margin-bottom: 20px;
+  text-align: center;
+}
+h2 {
+  text-align: center;
+  margin-top: 20px;
+}
+.congrats-overlay {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: rgba(255, 255, 255, 0.9);
+  padding: 20px;
+  border-radius: 10px;
+  text-align: center;
+  z-index: 10;
 }

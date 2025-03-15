@@ -1,2 +1,32 @@
 // For information on how to create your own theme, please see:
 // http://ionicframework.com/docs/theming/
+:root {
+  /* Paleta Inspirada no Girassol */
+  --ion-color-primary: #ffd300;
+  --ion-color-primary-rgb: 255, 211, 0;
+
+  --ion-color-secondary: #5d4037;
+  --ion-color-secondary-rgb: 93, 64, 55;
+
+  --ion-color-tertiary: #4caf50;
+  --ion-color-tertiary-rgb: 76, 175, 80;
+
+  /* Estados */
+  --ion-color-success: #81c784;
+  --ion-color-success-rgb: 129, 199, 132;
+
+  --ion-color-warning: #ffa000;
+  --ion-color-warning-rgb: 255, 160, 0;
+
+  --ion-color-danger: #e53935;
+  --ion-color-danger-rgb: 229, 57, 53;
+
+  --ion-color-light: #fffde7;
+  --ion-color-light-rgb: 255, 253, 231;
+
+  --ion-color-medium: #bdbdbd;
+  --ion-color-medium-rgb: 189, 189, 189;
+
+  --ion-color-dark: #424242;
+  --ion-color-dark-rgb: 66, 66, 66;
+}

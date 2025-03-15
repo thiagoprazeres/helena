@@ -1,43 +1,53 @@
 <ion-header class="ion-no-border">
   <ion-toolbar>
-    <ion-title>Helena ({{index}})</ion-title>
+    <ion-title>Ena speaks</ion-title>
   </ion-toolbar>
 </ion-header>
-
-<ion-content class="ion-padding ion-text-center">
-  <h1>{{ currentWord.emoji }}</h1>
-  <!-- Player de áudio com controles nativos -->
-  <audio [src]="currentWord.audio" controls autoplay type="audio/mp3">
-    Your browser does not support the audio element.
-  </audio>
-  <div>
-    <ion-text>
-      {{ correct ? currentWord.word : words[reindex].word }}
-      @if(!isLastCorrectAnswer) {
-      <ion-badge color="warning"> wrong </ion-badge>
+<ion-content>
+  <ion-progress-bar
+    [value]="(currentIndex + 1) / words.length"
+  ></ion-progress-bar>
+  <form (submit)="checkAnswer()">
+    <div class="ion-padding">
+      @if(gameCompleted) {
+      <div class="ion-padding">
+        <h2>Congratulations! You have completed all the stages!</h2>
+      </div>
       }
-    </ion-text>
-  </div>
-  <div style="margin-top: 3rem">
-    <ion-button
-      fill="solid"
-      shape="round"
-      id="button-true"
-      color="primary"
-      size="large"
-      (click)="handleResponse(true)"
-    >
-      True
-    </ion-button>
-    <ion-button
-      fill="solid"
-      shape="round"
-      id="button-false"
-      color="danger"
-      size="large"
-      (click)="handleResponse(false)"
-    >
-      False
-    </ion-button>
-  </div>
+      <h2>Phase {{ currentPhase }}: {{ currentSection }}</h2>
+      <ion-card #wordCard class="word-card">
+        <ion-card-header>
+          <ion-card-title>{{ currentWord.emoji }}</ion-card-title>
+        </ion-card-header>
+        <ion-card-content>
+          <h1>{{currentWord.word}}</h1>
+          <ion-button #audioButton (click)="playAudio()" size="large"
+            >Listen</ion-button
+          >
+          <ion-item>
+            <ion-input
+              #userIonInput
+              name="userInput"
+              aria-label="Write"
+              placeholder="Write"
+              [(ngModel)]="userInput"
+              [disabled]="answered"
+              [ngModelOptions]="{standalone: true}"
+            ></ion-input>
+          </ion-item>
+        </ion-card-content>
+      </ion-card>
+      <p class="ion-text-center">
+        <ion-badge *ngIf="feedback" color="danger">{{ feedback }}</ion-badge>
+      </p>
+      <ion-button
+        type="submit"
+        expand="full"
+        size="large"
+        [disabled]="answered"
+      >
+        Answer
+      </ion-button>
+    </div>
+  </form>
 </ion-content>

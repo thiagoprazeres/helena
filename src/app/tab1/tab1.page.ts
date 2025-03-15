@@ -1,113 +1,180 @@
-import { Component, ElementRef, QueryList, ViewChildren } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, ViewChild } from '@angular/core';
+import { NgIf } from '@angular/common';
+import { FormsModule } from '@angular/forms';
+import { gsap } from 'gsap';
 import {
   IonHeader,
+  IonContent,
   IonToolbar,
   IonTitle,
-  IonContent,
+  IonCard,
+  IonCardHeader,
+  IonCardTitle,
+  IonCardContent,
   IonButton,
   IonBadge,
-  IonText,
+  IonProgressBar,
+  IonItem,
+  IonInput,
 } from '@ionic/angular/standalone';
-interface Word {
-  word: string;
-  emoji: string;
-  audio?: string;
-}
-
-export const WORDS: Word[] = [
-  // Substantivos
-  { word: 'Song', emoji: '🎶', audio: 'assets/audio/song.mp3' },
-  { word: 'The World', emoji: '🌍', audio: 'assets/audio/the_world.mp3' },
-  { word: 'Heart', emoji: '❤️', audio: 'assets/audio/heart.mp3' },
-  { word: 'Skin', emoji: '🧴', audio: 'assets/audio/skin.mp3' },
-  { word: 'Shoulder', emoji: '🤷', audio: 'assets/audio/shoulder.mp3' },
-  { word: 'A fool', emoji: '🤡', audio: 'assets/audio/a_fool.mp3' },
-  { word: 'The pain', emoji: '💔', audio: 'assets/audio/the_pain.mp3' },
-  { word: 'The movement', emoji: '🌀', audio: 'assets/audio/the_movement.mp3' },
-  { word: 'The minute', emoji: '⏱️', audio: 'assets/audio/the_minute.mp3' },
-
-  // Advérbio
-  { word: 'Then', emoji: '⤴️', audio: 'assets/audio/then.mp3' },
-
-  // Pronomes
-  { word: 'It', emoji: '🐾', audio: 'assets/audio/it.mp3' },
-  { word: 'He', emoji: '👦', audio: 'assets/audio/he.mp3' },
-  { word: 'His', emoji: '👦➡️', audio: 'assets/audio/his.mp3' },
-  { word: 'His world', emoji: '👦➡️🌍', audio: 'assets/audio/his_world.mp3' },
-  { word: 'You', emoji: '🫵', audio: 'assets/audio/you.mp3' },
-  { word: 'Then you', emoji: '⤴️🫵', audio: 'assets/audio/then_you.mp3' },
-  { word: 'Your', emoji: '🫵➡️', audio: 'assets/audio/your.mp3' },
-  { word: 'Your heart', emoji: '🫵➡️❤️', audio: 'assets/audio/your_heart.mp3' },
-  { word: 'Your skin', emoji: '🫵➡️🧴', audio: 'assets/audio/your_skin.mp3' },
-  { word: 'Your shoulder', emoji: '🫵➡️🤷', audio: 'assets/audio/your_shoulder.mp3' },
-  { word: 'Your shoulders', emoji: '🫵➡️🤷🤷', audio: 'assets/audio/your_shoulders.mp3' },
-
-  // Preposição
-  { word: 'Upon', emoji: '⬆️', audio: 'assets/audio/upon.mp3' },
-  { word: 'The world upon your shoulders', emoji: '🌍⬆️🫵➡️🤷🤷', audio: 'assets/audio/the_world_upon_your_shoulders.mp3' },
-
-  // Adjetivo
-  { word: 'Sad', emoji: '🥺', audio: 'assets/audio/sad.mp3' },
-  { word: 'A sad song', emoji: '🥺🎶', audio: 'assets/audio/a_sad_song.mp3' },
-  { word: "it's a fool", emoji: '👤⚙️🤡', audio: "assets/audio/it's_a_fool.mp3" },
-];
+import { WORDS } from 'src/assets/data/words';
 
 @Component({
   selector: 'app-tab1',
   templateUrl: 'tab1.page.html',
   styleUrls: ['tab1.page.scss'],
   imports: [
+    FormsModule,
+    NgIf,
     IonHeader,
+    IonContent,
     IonToolbar,
     IonTitle,
-    IonContent,
+    IonCard,
+    IonCardHeader,
+    IonCardTitle,
+    IonCardContent,
     IonButton,
     IonBadge,
-    IonText,
+    IonProgressBar,
+    IonItem,
+    IonInput,
   ],
 })
-export class Tab1Page {
-  // Cria uma referência ao elemento de áudio
-  @ViewChildren('audioPlayer') audioPlayers!: QueryList<ElementRef>;
+export class Tab1Page implements AfterViewInit {
+  @ViewChild('wordCard', { static: false }) wordCard!: any;
+  @ViewChild('audioButton', { static: false }) audioButton!: any;
+  @ViewChild('userIonInput') userIonInput!: IonInput;
 
-  words: Word[] = WORDS;
-  index = 0;
-  reindex = 0;
-  correct = true;
-  isLastCorrectAnswer = true;
+  words = WORDS;
+  currentIndex = 0;
+  userInput = '';
+  feedback = '';
+  answered = false;
+  correct = false;
 
-  get currentWord(): Word {
-    let currentWord: Word = WORDS[this.index];
-    return currentWord;
+  ngAfterViewInit() {
+    document.body.addEventListener('click', this.handleFirstClick.bind(this), {
+      once: true,
+    });
+    gsap.from(this.wordCard.el, {
+      duration: 0.5,
+      opacity: 0,
+      scale: 0.8,
+      ease: 'back.out(1.7)',
+    });
   }
 
-  handleResponse(answer: boolean) {
-    if (this.correct && answer) {
-      this.index++;
-      this.reindex = 0;
-      this.correct = false;
-      this.isLastCorrectAnswer = true;
-      // this.negation = Math.random() < 0.5;
-    } else if (!this.correct && !answer) {
-      this.reindex++;
-      this.correct = this.reindex === this.index;
-      this.isLastCorrectAnswer = true;
-      // this.negation = Math.random() < 0.5;
-    } else {
-      this.reindex = 0;
-      // this.correct = Math.random() < 0.5;
-      console.info('Errou');
-      this.index = Math.max(this.index - 1, 0);
+  ionViewDidEnter() {
+    this.playAudio();
+    this.userIonInput.setFocus();
+  }
+
+  handleFirstClick() {
+    this.playAudio();
+  }
+
+  get currentWord() {
+    return this.words[this.currentIndex];
+  }
+
+  // Definindo as fases com base no índice atual.
+  get currentPhase() {
+    if (this.currentIndex < 5) return '1';
+    else if (this.currentIndex < 12) return '2';
+    else if (this.currentIndex < 17) return '3';
+    else return '4';
+  }
+
+  // Define o título da fase
+  get currentSection() {
+    if (this.currentIndex < 5) return 'Heart';
+    else if (this.currentIndex < 12) return 'Found';
+    else if (this.currentIndex < 17) return 'Song';
+    else return 'Skin';
+  }
+
+  get gameCompleted() {
+    return this.currentIndex >= this.words.length;
+  }
+
+  playAudio() {
+    const audio = new Audio(this.currentWord.audio);
+    audio.play();
+    gsap.from(this.audioButton.el, {
+      duration: 0.25,
+      opacity: 0,
+      scale: 0.8,
+      ease: 'back.out(1.7)',
+    });
+  }
+
+  shake() {
+    // Animação de feedback de erro: shake no cartão
+    gsap.to(this.wordCard.el, {
+      x: 10,
+      duration: 0.1,
+      yoyo: true,
+      repeat: 5,
+      ease: 'power1.inOut',
+      onComplete: () => {
+        gsap.to(this.wordCard.el, { x: 0, duration: 0.1 });
+      },
+    });
+  }
+
+  checkAnswer() {
+    if (!this.userInput) {
+      this.feedback = 'Please enter a word.';
+      this.shake();
+      return;
+    }
+    // Compara ignorando caixa e espaços
+    if (
+      this.userInput.trim().toLowerCase() ===
+      this.currentWord.word.toLowerCase()
+    ) {
+      // Right!
+      this.feedback = '';
       this.correct = true;
-      this.isLastCorrectAnswer = false;
+      this.answered = true;
+      this.nextWord();
+    } else {
+      this.feedback = 'Wrong! Try again.';
+      this.correct = false;
+      this.shake();
     }
   }
-  playAudio(audioSrc: string) {
-    const audioElement = this.audioPlayers.find(
-      (player) => player.nativeElement.src === audioSrc
-    )?.nativeElement;
-    if (audioElement) {
-      audioElement.play();
-    }
+
+  nextWord() {
+    // Animação de transição: fade out do cartão atual
+    gsap.to(this.wordCard.el, {
+      duration: 0.1,
+      opacity: 0,
+      onComplete: () => {
+        this.currentIndex++;
+        this.userInput = '';
+        this.feedback = '';
+        this.answered = false;
+        this.correct = false;
+        // Se houver próxima palavra, animação de fade in com escala
+        if (!this.gameCompleted) {
+          gsap.fromTo(
+            this.wordCard.el,
+            { opacity: 0, scale: 0.5 },
+            {
+              duration: 0.3,
+              opacity: 1,
+              scale: 1,
+              ease: 'back.out(1.7)',
+              onComplete: () => {
+                this.playAudio();
+                this.userIonInput.setFocus();
+              },
+            }
+          );
+        }
+      },
+    });
   }
 }

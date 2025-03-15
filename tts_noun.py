@@ -3,32 +3,33 @@ import os
 
 # Texto a ser convertido em forma de lista
 words = [
-    "Song",
-    "The World",
     "Heart",
-    "Skin",
-    "Shoulder",
-    "A fool",
-    "The pain",
-    "The movement",
-    "The minute",
-    "Then",
-    "It",
-    "He",
-    "His",
-    "His world",
-    "You",
-    "Then you",
     "Your",
     "Your heart",
-    "Your skin",
-    "Your shoulder",
-    "Your shoulders",
-    "Upon",
-    "The world upon your shoulders",
+    "Into",
+    "Into your heart",
+    "You",
+    "Have",
+    "You have",
+    "Found",
+    "Her",
+    "Found her",
+    "You have found her",
+    "Song",
     "Sad",
     "A sad song",
-    "it's a fool"
+    "Take",
+    "Take a sad song",
+    "Skin",
+    "Your skin",
+    "Under",
+    "Under your skin",
+    "Let",
+    "Her",
+    "Letter",
+    "Letter into your heart",
+    "Letter under your skin",
+    "Take a sad song. You have found her. Letter into your heart. Letter under your skin"
 ]
 
 # Cria a pasta 'src/assets/audio/' caso não exista
@@ -42,7 +43,8 @@ for word in words:
 
     if word:  # Verifica se a palavra não está vazia
         # Cria o objeto gTTS definindo a língua como 'en' para inglês
-        tts = gTTS(word, lang='en')
+        # tts = gTTS(word, lang='en', slow=False)
+        tts = gTTS(word, lang='en', tld='co.uk', slow=False)
         
         # Define o nome do arquivo com base na palavra
         filename = os.path.join(output_dir, f"{word.replace(' ', '_').lower()}.mp3")

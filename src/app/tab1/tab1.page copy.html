@@ -1,0 +1,43 @@
+<ion-header class="ion-no-border">
+  <ion-toolbar>
+    <ion-title>Helena ({{index}})</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding ion-text-center">
+  <h1>{{ currentWord.emoji }}</h1>
+  <!-- Player de áudio com controles nativos -->
+  <audio [src]="currentWord.audio" controls autoplay type="audio/mp3">
+    Your browser does not support the audio element.
+  </audio>
+  <div>
+    <ion-text>
+      {{ correct ? currentWord.word : words[reindex].word }}
+      @if(!isLastCorrectAnswer) {
+      <ion-badge color="warning"> wrong </ion-badge>
+      }
+    </ion-text>
+  </div>
+  <div style="margin-top: 3rem">
+    <ion-button
+      fill="solid"
+      shape="round"
+      id="button-true"
+      color="primary"
+      size="large"
+      (click)="handleResponse(true)"
+    >
+      True
+    </ion-button>
+    <ion-button
+      fill="solid"
+      shape="round"
+      id="button-false"
+      color="danger"
+      size="large"
+      (click)="handleResponse(false)"
+    >
+      False
+    </ion-button>
+  </div>
+</ion-content>
