@@ -1,6 +1,6 @@
 <ion-header class="ion-no-border">
   <ion-toolbar>
-    <ion-title>Ena speaks</ion-title>
+    <ion-title>Phase {{ currentPhase }}: {{ currentSection }}</ion-title>
   </ion-toolbar>
 </ion-header>
 <ion-content>
@@ -14,13 +14,15 @@
         <h2>Congratulations! You have completed all the stages!</h2>
       </div>
       }
-      <h2>Phase {{ currentPhase }}: {{ currentSection }}</h2>
+      <h2>Ena speaks</h2>
       <ion-card #wordCard class="word-card">
         <ion-card-header>
           <ion-card-title>{{ currentWord.emoji }}</ion-card-title>
         </ion-card-header>
         <ion-card-content>
+          @if(!isLastQuestionOfPhase()){
           <h1>{{currentWord.word}}</h1>
+          }
           <ion-button #audioButton (click)="playAudio()" size="large"
             >Listen</ion-button
           >

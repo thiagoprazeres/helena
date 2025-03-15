@@ -47,7 +47,7 @@ export class Tab1Page implements AfterViewInit {
   @ViewChild('userIonInput') userIonInput!: IonInput;
 
   words = WORDS;
-  currentIndex = 0;
+  currentIndex = 25;
   userInput = '';
   feedback = '';
   answered = false;
@@ -83,7 +83,8 @@ export class Tab1Page implements AfterViewInit {
     if (this.currentIndex < 5) return '1';
     else if (this.currentIndex < 12) return '2';
     else if (this.currentIndex < 17) return '3';
-    else return '4';
+    else if (this.currentIndex < 25) return '4';
+    else return '5';
   }
 
   // Define o título da fase
@@ -91,11 +92,27 @@ export class Tab1Page implements AfterViewInit {
     if (this.currentIndex < 5) return 'Heart';
     else if (this.currentIndex < 12) return 'Found';
     else if (this.currentIndex < 17) return 'Song';
-    else return 'Skin';
+    else if (this.currentIndex < 26) return 'Skin';
+    else return 'Final';
   }
 
   get gameCompleted() {
     return this.currentIndex >= this.words.length;
+  }
+
+  // Método para verificar se a pergunta atual é a última da lição
+  isLastQuestionOfPhase(): boolean {
+    if (this.currentIndex < 5) {
+      return this.currentIndex === 4;
+    } else if (this.currentIndex < 12) {
+      return this.currentIndex === 11;
+    } else if (this.currentIndex < 17) {
+      return this.currentIndex === 16;
+    } else if (this.currentIndex < 26) {
+      return this.currentIndex === 25;
+    } else {
+      return this.currentIndex === this.words.length - 1;
+    }
   }
 
   playAudio() {
