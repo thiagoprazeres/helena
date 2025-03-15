@@ -1,4 +1,4 @@
-import { Word } from "src/app/interfaces/word";
+import { Word } from 'src/app/interfaces/word';
 
 export const WORDS: Word[] = [
   // Phase 1: Heart
@@ -19,7 +19,11 @@ export const WORDS: Word[] = [
   { word: 'Found', emoji: '🔍', audio: 'assets/audio/found.mp3' },
   { word: 'Her', emoji: '👩➡️', audio: 'assets/audio/her.mp3' },
   { word: 'Found her', emoji: '🔍👩➡️', audio: 'assets/audio/found_her.mp3' },
-  { word: 'You have found her', emoji: '📍', audio: 'assets/audio/you_have_found_her.mp3' },
+  {
+    word: 'You have found her',
+    emoji: '📍',
+    audio: 'assets/audio/you_have_found_her.mp3',
+  },
 
   // Phase 3: Song
   { word: 'Song', emoji: '🎶', audio: 'assets/audio/song.mp3' },
@@ -42,21 +46,51 @@ export const WORDS: Word[] = [
     audio: 'assets/audio/under_your_skin.mp3',
   },
   { word: 'Let', emoji: '🔓', audio: 'assets/audio/let.mp3' },
-  { word: 'Her', emoji: '👦➡️', audio: 'assets/audio/her.mp3' },
-  { word: 'Let her', emoji: '🔓👦➡️', audio: 'assets/audio/letter.mp3' },
+  { word: 'You let her', emoji: '🔓👦➡️', audio: 'assets/audio/you_letter.mp3' },
   {
-    word: 'Let her into your heart',
+    word: 'You let her into your heart',
     emoji: '🔓🫵➡️❤️',
-    audio: 'assets/audio/letter_into_your_heart.mp3',
+    audio: 'assets/audio/you_letter_into_your_heart.mp3',
   },
   {
-    word: 'Let her under your skin',
-    emoji: '🔓🫵➡️🧴',
-    audio: 'assets/audio/letter_under_your_skin.mp3',
+    word: 'You let her under your skin',
+    emoji: '🔓🔽🫵➡️🧴',
+    audio: 'assets/audio/you_letter_under_your_skin.mp3',
+  },
+  // {
+  //   word: 'Take a sad song. You have found her. You let her into your heart. You let her under your skin.',
+  //   emoji: '🎶💖',
+  //   audio: 'assets/audio/take_a_sad_song._you_have_found_her._letter_into_your_heart._letter_under_your_skin.mp3',
+  // },
+  // Phase 5: Afraid
+  {
+    word: "Don't make it bad",
+    emoji: '👎',
+    audio: "assets/audio/don't_make_it_bad.mp3",
   },
   {
-    word: 'Take a sad song. You have found her. Let her into your heart. Let her under your skin.',
-    emoji: '🎶💖',
-    audio: 'assets/audio/take_a_sad_song._you_have_found_her._letter_into_your_heart._letter_under_your_skin.mp3',
+    word: 'Afraid',
+    emoji: '😱',
+    audio: 'assets/audio/afraid.mp3',
+  },
+  {
+    word: "Don't be afraid",
+    emoji: '😱',
+    audio: "assets/audio/don't_be_afraid.mp3",
+  },
+  {
+    word: 'Refrain',
+    emoji: '🎹',
+    audio: 'assets/audio/refrain.mp3',
+  },
+  {
+    word: 'Begin',
+    emoji: '🎬',
+    audio: 'assets/audio/begin.mp3',
+  },
+  {
+    word: "Don't make it bad. Don't be afraid. Refrain. Begin",
+    emoji: '👎😱🎹🎬',
+    audio: "assets/audio/don't_make_it_bad._don't_be_afraid._refrain._begin.mp3",
   },
 ];

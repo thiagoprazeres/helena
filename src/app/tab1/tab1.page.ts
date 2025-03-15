@@ -67,7 +67,6 @@ export class Tab1Page implements AfterViewInit {
 
   ionViewDidEnter() {
     this.playAudio();
-    this.userIonInput.setFocus();
   }
 
   handleFirstClick() {
@@ -92,7 +91,8 @@ export class Tab1Page implements AfterViewInit {
     if (this.currentIndex < 5) return 'Heart';
     else if (this.currentIndex < 12) return 'Found';
     else if (this.currentIndex < 17) return 'Song';
-    else if (this.currentIndex < 26) return 'Skin';
+    else if (this.currentIndex < 25) return 'Skin';
+    else if (this.currentIndex < 30) return 'Afraid';
     else return 'Final';
   }
 
@@ -108,8 +108,8 @@ export class Tab1Page implements AfterViewInit {
       return this.currentIndex === 11;
     } else if (this.currentIndex < 17) {
       return this.currentIndex === 16;
-    } else if (this.currentIndex < 26) {
-      return this.currentIndex === 25;
+    } else if (this.currentIndex < 25) {
+      return this.currentIndex === 24;
     } else {
       return this.currentIndex === this.words.length - 1;
     }
@@ -144,6 +144,7 @@ export class Tab1Page implements AfterViewInit {
     if (!this.userInput) {
       this.feedback = 'Please enter a word.';
       this.shake();
+      this.userIonInput.setFocus();
       return;
     }
     // Compara ignorando caixa e espaços
@@ -160,6 +161,7 @@ export class Tab1Page implements AfterViewInit {
       this.feedback = 'Wrong! Try again.';
       this.correct = false;
       this.shake();
+      this.userIonInput.setFocus();
     }
   }
 
