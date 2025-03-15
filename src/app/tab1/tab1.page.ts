@@ -47,7 +47,7 @@ export class Tab1Page implements AfterViewInit {
   @ViewChild('userIonInput') userIonInput!: IonInput;
 
   words = WORDS;
-  currentIndex = 25;
+  currentIndex = 0;
   userInput = '';
   feedback = '';
   answered = false;
