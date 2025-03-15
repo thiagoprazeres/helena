@@ -104,6 +104,11 @@ export const WORDS: Word[] = [
     audio: 'assets/audio/refrain.mp3',
   },
   {
+    word: "Don't let me down",
+    emoji: '🙏',
+    audio: "assets/audio/don't_let_me_down.mp3",
+  },
+  {
     word: 'Begin',
     emoji: '🎬',
     audio: 'assets/audio/begin.mp3',
@@ -114,9 +119,9 @@ export const WORDS: Word[] = [
     audio: "assets/audio/you'll_do.mp3",
   },
   {
-    word: "Don't make it bad. Don't be afraid. Refrain. Begin. You'll do",
-    emoji: '👎😱🎹🎬💪',
+    word: "Don't make it bad. Don't be afraid. Refrain. Don't let me down. Begin. You'll do",
+    emoji: '👎😱🎹🙏🎬💪',
     audio:
-      "assets/audio/don't_make_it_bad._don't_be_afraid._refrain._begin._you'll_do.mp3",
+      "assets/audio/don't_make_it_bad._don't_be_afraid._refrain._don't_let_me_down._begin._you'll_do.mp3",
   },
 ];
