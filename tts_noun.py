@@ -28,13 +28,18 @@ words = [
     # "You letter",
     # "You letter into your heart",
     # "You letter under your skin",
+    "Remember to",
+    "The minute",
+    "Remember to let her into your heart",
+    "The minute you let her under your skin",
     # #"Take a sad song. You have found her. You letter into your heart. You letter under your skin",
     # "Don't make it bad",
     # "Afraid",
     # "Don't be afraid",
     # "Refrain",
     # "Begin",
-    "Don't make it bad. Don't be afraid. Refrain. Begin"
+    "You'll do",
+    "Don't make it bad. Don't be afraid. Refrain. Begin. You'll do"
 ]
 
 # Cria a pasta 'src/assets/audio/' caso não exista

@@ -46,7 +46,11 @@ export const WORDS: Word[] = [
     audio: 'assets/audio/under_your_skin.mp3',
   },
   { word: 'Let', emoji: '🔓', audio: 'assets/audio/let.mp3' },
-  { word: 'You let her', emoji: '🔓👦➡️', audio: 'assets/audio/you_letter.mp3' },
+  {
+    word: 'You let her',
+    emoji: '🔓👦➡️',
+    audio: 'assets/audio/you_letter.mp3',
+  },
   {
     word: 'You let her into your heart',
     emoji: '🔓🫵➡️❤️',
@@ -56,6 +60,22 @@ export const WORDS: Word[] = [
     word: 'You let her under your skin',
     emoji: '🔓🔽🫵➡️🧴',
     audio: 'assets/audio/you_letter_under_your_skin.mp3',
+  },
+  { word: 'Remember to', emoji: '🎗️', audio: 'assets/audio/remember_to.mp3' },
+  {
+    word: 'The minute',
+    emoji: '⏲️',
+    audio: 'assets/audio/the_minute.mp3',
+  },
+  {
+    word: 'Remember to let her into your heart',
+    emoji: '🎗️❤️',
+    audio: 'assets/audio/remember_to_let_her_into_your_heart.mp3',
+  },
+  {
+    word: 'The minute you let her under your skin',
+    emoji: '⏲️',
+    audio: 'assets/audio/the_minute_you_let_her_under_your_skin.mp3',
   },
   // {
   //   word: 'Take a sad song. You have found her. You let her into your heart. You let her under your skin.',
@@ -89,8 +109,14 @@ export const WORDS: Word[] = [
     audio: 'assets/audio/begin.mp3',
   },
   {
-    word: "Don't make it bad. Don't be afraid. Refrain. Begin",
-    emoji: '👎😱🎹🎬',
-    audio: "assets/audio/don't_make_it_bad._don't_be_afraid._refrain._begin.mp3",
+    word: "You'll do",
+    emoji: ' 💪',
+    audio: "assets/audio/you'll_do.mp3",
+  },
+  {
+    word: "Don't make it bad. Don't be afraid. Refrain. Begin. You'll do",
+    emoji: '👎😱🎹🎬💪',
+    audio:
+      "assets/audio/don't_make_it_bad._don't_be_afraid._refrain._begin._you'll_do.mp3",
   },
 ];
