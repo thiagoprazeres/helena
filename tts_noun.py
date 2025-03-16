@@ -41,15 +41,23 @@ words = [
     # "Begin",
     #"You'll do",
     #"Don't make it bad. Don't be afraid. Refrain. Don't let me down. Begin. You'll do"
-    "Shoulders",
-    "Upon",
-    "Upon your shoulders",
-    "World",
-    "The world",
-    "The world upon your shoulders",
-    "Carry",
-    "Don't carry",
-    "Don't carry the world upon your shoulders"
+    # "Shoulders",
+    # "Upon",
+    # "Upon your shoulders",
+    # "World",
+    # "The world",
+    # "The world upon your shoulders",
+    # "Carry",
+    # "Don't carry",
+    # "Don't carry the world upon your shoulders"
+    "Someone",
+    "For someone",
+    "Waiting",
+    "You're waiting",
+    "You're waiting for someone",
+    "Perform",
+    "To perform with",
+    "You're waiting for someone to perform with",
 ]
 
 # Cria a pasta 'src/assets/audio/' caso não exista

@@ -148,4 +148,17 @@ export const WORDS: Word[] = [
     emoji: '🚫🎒🌎🔝🫵➡️🤷',
     audio: "assets/audio/don't_carry_the_world_upon_your_shoulders.mp3",
   },
+  // Phase 9: Someone
+  { word: 'Someone', emoji: '👤', audio: 'assets/audio/someone.mp3' },
+  { word: 'For someone', emoji: '👤', audio: 'assets/audio/for_someone.mp3' },
+  { word: "Waiting", emoji: '⏳', audio: "assets/audio/waiting.mp3" },
+  { word: "You're waiting", emoji: '⏳', audio: "assets/audio/you're_waiting.mp3" },
+  { word: "You're waiting for someone", emoji: '🫵⏳👤', audio: "assets/audio/you're_waiting_for_someone.mp3" },
+  { word: 'Perform', emoji: '🎭', audio: 'assets/audio/perform.mp3' },
+  { word: 'To perform with', emoji: ' 🎭', audio: 'assets/audio/to_perform_with.mp3' },
+  {
+    word: "You're waiting for someone to perform with",
+    emoji: '🫵⏳👤🎭',
+    audio: "assets/audio/you're_waiting_for_someone_to_perform_with.mp3",
+  },
 ];
