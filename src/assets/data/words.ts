@@ -118,10 +118,34 @@ export const WORDS: Word[] = [
     emoji: ' 💪',
     audio: "assets/audio/you'll_do.mp3",
   },
+  // {
+  //   word: "Don't make it bad. Don't be afraid. Refrain. Don't let me down. Begin. You'll do",
+  //   emoji: '👎😱🎹🙏🎬💪',
+  //   audio:
+  //     "assets/audio/don't_make_it_bad._don't_be_afraid._refrain._don't_let_me_down._begin._you'll_do.mp3",
+  // },
+  // Phase 6: Shoulders
+  { word: 'Shoulders', emoji: ' 🤷', audio: 'assets/audio/shoulders.mp3' },
+  { word: 'Upon', emoji: '🔝', audio: 'assets/audio/upon.mp3' },
   {
-    word: "Don't make it bad. Don't be afraid. Refrain. Don't let me down. Begin. You'll do",
-    emoji: '👎😱🎹🙏🎬💪',
-    audio:
-      "assets/audio/don't_make_it_bad._don't_be_afraid._refrain._don't_let_me_down._begin._you'll_do.mp3",
+    word: 'Upon your shoulders',
+    emoji: '🔝🫵➡️🤷',
+    audio: 'assets/audio/upon_your_shoulders.mp3',
+  },
+  // Phase 7: World
+  { word: 'World', emoji: '🌎', audio: 'assets/audio/world.mp3' },
+  { word: 'The world', emoji: '🔝', audio: 'assets/audio/the_world.mp3' },
+  {
+    word: 'The world upon your shoulders',
+    emoji: '🌎🔝🫵➡️🤷',
+    audio: 'assets/audio/the_world_upon_your_shoulders.mp3',
+  },
+  // Phase 8: Carry
+  { word: 'Carry', emoji: '🎒', audio: 'assets/audio/carry.mp3' },
+  { word: "Don't carry", emoji: '🚫🎒', audio: "assets/audio/don't_carry.mp3" },
+  {
+    word: "Don't carry the world upon your shoulders",
+    emoji: '🚫🎒🌎🔝🫵➡️🤷',
+    audio: "assets/audio/don't_carry_the_world_upon_your_shoulders.mp3",
   },
 ];

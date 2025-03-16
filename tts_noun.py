@@ -40,7 +40,16 @@ words = [
     #"Don't let me down",
     # "Begin",
     #"You'll do",
-    "Don't make it bad. Don't be afraid. Refrain. Don't let me down. Begin. You'll do"
+    #"Don't make it bad. Don't be afraid. Refrain. Don't let me down. Begin. You'll do"
+    "Shoulders",
+    "Upon",
+    "Upon your shoulders",
+    "World",
+    "The world",
+    "The world upon your shoulders",
+    "Carry",
+    "Don't carry",
+    "Don't carry the world upon your shoulders"
 ]
 
 # Cria a pasta 'src/assets/audio/' caso não exista

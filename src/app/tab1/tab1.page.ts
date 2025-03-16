@@ -47,7 +47,7 @@ export class Tab1Page implements AfterViewInit {
   @ViewChild('userIonInput') userIonInput!: IonInput;
 
   words = WORDS;
-  currentIndex = 29;
+  currentIndex = 36;
   userInput = '';
   feedback = '';
   answered = false;
@@ -82,7 +82,7 @@ export class Tab1Page implements AfterViewInit {
     if (this.currentIndex < 5) return '1';
     else if (this.currentIndex < 12) return '2';
     else if (this.currentIndex < 17) return '3';
-    else if (this.currentIndex < 37) return '4';
+    else if (this.currentIndex < 42) return '4';
     else return '5';
   }
 
@@ -92,7 +92,7 @@ export class Tab1Page implements AfterViewInit {
     else if (this.currentIndex < 12) return 'Found';
     else if (this.currentIndex < 17) return 'Song';
     else if (this.currentIndex < 29) return 'Skin';
-    else if (this.currentIndex < 37) return 'Afraid';
+    else if (this.currentIndex < 42) return 'Afraid';
     else return 'Final';
   }
 
@@ -108,8 +108,8 @@ export class Tab1Page implements AfterViewInit {
       return this.currentIndex === 11;
     } else if (this.currentIndex < 17) {
       return this.currentIndex === 16;
-    } else if (this.currentIndex < 37) {
-      return this.currentIndex === 36;
+    } else if (this.currentIndex < 42) {
+      return this.currentIndex === 41;
     } else {
       return this.currentIndex === this.words.length - 1;
     }
